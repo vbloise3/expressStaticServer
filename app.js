@@ -18,6 +18,11 @@ app.use(function(req, res) {
     res.send("File not found!");
 });
 
+app.use(function(err, req, res, next) {
+    res.status(500);
+    res.send("Internal server error");
+});
+
 app.listen(3008, function() {
     console.log("App listening on port 3008");
 });
