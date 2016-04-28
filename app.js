@@ -13,9 +13,13 @@ app.use(morgan("short"));
 var staticPath = path.join(__dirname, "static");
 app.use(express.static(staticPath));
 
+app.get("/olivia", function(request, response) {
+    response.send("Welcome to Olivia's homepage!");
+});
+
 app.use(function(req, res) {
     res.status(404);
-    res.send("File not found!");
+    res.send("Page not found!");
 });
 
 app.use(function(err, req, res, next) {
